@@ -1,0 +1,168 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+body {
+    height: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+    font-weight: 700;
+}
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#app {
+    height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+a,
+a:focus,
+a:hover {
+    cursor: pointer;
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+}
+
+div:focus {
+    outline: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+}
+
+.clearfix {
+    &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+}
+
+//main-container全局样式
+.app-main {
+    min-height: 100%;
+    margin: 20px 20px 40px;
+}
+
+.app-container {
+    padding: 20px;
+}
+
+// 通用样式
+.el-table .cell {
+    padding: 0;
+    line-height: 36px;
+}
+
+.el-table::before {
+    display: none;
+}
+
+.el-table td.is-left {
+    color: #1875f0;
+}
+
+.el-table td {
+    padding: 0;
+}
+
+.bottomC {
+    bottom: 20px;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+}
+
+.el-checkbox+.el-checkbox {
+    float: left;
+    // margin: 0 15px 0 0;
+}
+
+.linkage {
+    font-size: 14px;
+    color: #6b6b6b;
+}
+
+.shuoming {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: #c8cace;
+    line-height: 18px;
+    font-size: 14px;
+    color: white;
+    border-radius: 12px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.el-popper {
+    width: 460px !important;
+    .el-checkbox{
+        margin: 0px;
+        width: 140px;
+    }
+}
+
+.searchValue-date {
+    .el-icon-date,
+    .el-range-separator,
+    .el-range__close-icon {
+        line-height: 22px;
+    }
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner {
+    background-color: #fff;
+}
+
+.el-checkbox__inner::after {
+    transform: none;
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner::after {
+    transform: none;
+    background-color: #2e89e6;
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+}
+
+.el-checkbox-group {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.el-table tr {
+    cursor: pointer;
+}

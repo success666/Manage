@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="./js/echarts.js"></script>
+	<script type="text/javascript" src="./js/china.js"></script>
+	<style>
+		#maps {
+			position:fixed;
+			top:0px;
+			left:0;
+			right:0;
+			bottom:0;
+		}
+	</style>
+	<title>maps</title>
+</head>
+<body>
+	<div id="maps">
+		
+	</div>
+	<script>
+		var mapsChart = echarts.init(document.getElementById('maps'));
+		var geoMap = {
+			type:'FeatureCollection'
+		};
+
+		// $.ajax({
+		// 	url:'./json/china.json',
+		// 	success: function (data) {
+        //         geoMap.features = data.features
+		// 		echarts.registerMap('maps', geoMap);
+
+
+
+		// 		var data = {
+		// 			textStyle:{
+		// 				color:'#d4e5ff'
+		// 			},
+		// 			tooltip: {
+		// 				trigger: 'item',
+		// 				formatter: function (params){//修改鼠标移上去显示的文字
+						
+		// 					if(params.seriesIndex==0){
+		// 						if(isNaN(params.value)){
+		// 							return params.name + '：0';
+		// 						}else {
+		// 							return params.name + '：' + params.data.value;
+		// 						};
+		// 					}else if(params.seriesIndex==2){
+		// 						return params.data.fromName + '-' + params.data.toName + '：' + params.value + '笔';
+		// 					};
+		// 				}
+		// 			},
+		// 			geo: {
+		// 				map: 'maps',
+		// 				label: {
+		// 					emphasis: {
+		// 						show: false
+		// 					}
+		// 				},
+		// 				roam: true,
+		// 				itemStyle: {
+		// 					normal: {
+		// 						//areaColor: '#0966a7',
+		// 						areaColor: 'rgba(16,95,191,.2)',
+		// 						borderColor: '#020611',
+		// 						borderWidth:1,
+		// 						shadowColor: 'rgba(0, 0, 0, 0.5)',
+		// 						shadowBlur: 6
+		// 					},
+		// 					emphasis:{
+		// 						areaColor: '#0072fd'
+		// 					}
+		// 				},
+		// 				//center: [104.648,34.7277],
+		// 				scaleLimit:{
+		// 					//min:1.2
+		// 				},
+		// 				regions: [{
+		// 					name: '南海诸岛',
+		// 					itemStyle: {
+		// 						normal: {
+		// 							//areaColor: '#00479d',
+		// 							//color: '#174785'
+		// 							areaColor: 'rgba(0,0,0,0)',
+		// 							color: 'rgba(0,0,0,0)'
+		// 						},
+		// 						emphasis: {
+		// 							areaColor: '#00479d',
+		// 							color: '#174785'
+		// 						}
+		// 					}
+		// 				}]
+		// 			},
+		// 			visualMap: [
+		// 				{
+		// 					show:true,
+		// 					seriesIndex:0,
+		// 					min:0,
+		// 					max:100,
+		// 					inRange: {
+		// 						color: ['#02ffff','#fffb01','#ff3332']
+		// 					},
+		// 					itemWidth:15,
+		// 					itemHeight:115,
+		// 					left: 257,
+		// 					bottom: 32,
+		// 					textStyle:{
+		// 						color:'#d4e5ff'
+		// 					},
+		// 					orient:'horizontal',
+		// 					calculable: true
+		// 				}
+		// 			],
+		// 			series : [
+		// 				{
+		// 					type: 'map',
+		// 					map:'maps',
+		// 					geoIndex: 0,
+		// 					roam: false,
+		// 					label: {
+		// 						normal: {
+		// 							show: true
+		// 						},
+		// 						emphasis: {
+		// 							show: true
+		// 						}
+		// 					},
+		// 					data:[
+		// 						{name:'110113',value:100},
+		// 						{name:'黑龙江省',value:100,code:'230000'}
+		// 					]
+		// 				}
+						
+		// 			]
+		// 		}
+
+				
+				
+		// 		mapsChart.setOption(data);
+        //     }	
+
+		// })
+		$.ajax({
+			url:'./json/geometryCouties/110100.json',
+			success: function (data) {
+				geoMap.features = data.features;
+				// for(var i=0;i<data.features.length;i++){
+				// 	if(data.features[i].properties.id==110113){
+				// 		geoMap.features = []
+				// 		geoMap.features[0] = data.features[i];
+				// 	}
+				// }
+				echarts.registerMap('maps', geoMap);
+
+
+				
+				var data = {
+					textStyle:{
+						color:'#d4e5ff'
+					},
+					tooltip: {
+						trigger: 'item',
+						formatter: function (params){//修改鼠标移上去显示的文字
+						
+							// if(params.seriesIndex==0){
+							// 	if(isNaN(params.value)){
+							// 		return params.name + '：0';
+							// 	}else {
+							// 		return params.name + '：' + params.data.value;
+							// 	};
+							// }else if(params.seriesIndex==2){
+							// 	return params.data.fromName + '-' + params.data.toName + '：' + params.value + '笔';
+							// };
+						}
+					},
+					geo: {
+						map: 'maps',
+						label: {
+							emphasis: {
+								show: false
+							}
+						},
+						roam: true,
+						itemStyle: {
+							normal: {
+								//areaColor: '#0966a7',
+								areaColor: 'rgba(16,95,191,.2)',
+								borderColor: '#020611',
+								borderWidth:1,
+								shadowColor: 'rgba(0, 0, 0, 0.5)',
+								shadowBlur: 6
+							},
+							emphasis:{
+								areaColor: '#0072fd'
+							}
+						},
+						//center: [104.648,34.7277],
+						scaleLimit:{
+							//min:1.2
+						},
+						regions: [{
+							name: '南海诸岛',
+							itemStyle: {
+								normal: {
+									//areaColor: '#00479d',
+									//color: '#174785'
+									areaColor: 'rgba(0,0,0,0)',
+									color: 'rgba(0,0,0,0)'
+								},
+								emphasis: {
+									areaColor: '#00479d',
+									color: '#174785'
+								}
+							}
+						}]
+					},
+					visualMap: [
+						{
+							show:true,
+							seriesIndex:0,
+							min:0,
+							max:100,
+							inRange: {
+								color: ['#02ffff','#fffb01','#ff3332']
+							},
+							itemWidth:15,
+							itemHeight:115,
+							left: 257,
+							bottom: 32,
+							textStyle:{
+								color:'#d4e5ff'
+							},
+							orient:'horizontal',
+							calculable: true
+						}
+					],
+					series : [
+						{
+							type: 'map',
+							map:'maps',
+							geoIndex: 0,
+							roam: false,
+							label: {
+								normal: {
+									show: true
+								},
+								emphasis: {
+									show: true
+								}
+							},
+							data:[
+								{name:'110113',value:100},
+								{name:'黑龙江省',value:100,code:'230000'}
+							]
+						}
+						
+					]
+				}
+
+				
+				
+				mapsChart.setOption(data);
+				
+                
+            }
+
+		});
+
+		
+
+
+		mapsChart.on('click', function(param) {
+			console.log(param)
+		})
+	</script>
+</body>
+</html>

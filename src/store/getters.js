@@ -1,0 +1,32 @@
+const getters = {
+  sidebar: state => state.app.sidebar,
+  device: state => state.app.device,
+  token: state => state.user.token,
+  avatar: state => state.user.avatar,
+  name: state => state.user.name,
+  roles: state => state.user.roles,
+  routeList: state => state.app.routeList,
+  posProvinceIdList: state => state.app.posProvinceIdList,
+  posCityIdList: state => state.app.posCityIdList,
+  posDistrictIdList: state => state.app.posDistrictIdList,
+  schoolTypeIdList: state => state.app.schoolTypeIdList,
+  schoolYearList: state => state.app.schoolYearList,
+  schoolList: state => state.app.schoolList,
+  productDataList: state => state.app.productDataList,
+  pageSelectArr: state => state.app.pageSelectArr,
+  schoolYearArr: state => state.app.schoolYearArr,
+  defaultClassification: state => state.app.defaultClassification,
+  schoolYear: state => state.app.schoolYear,
+  needRefresh: state => state.app.needRefresh,
+  defaultDate: state => state.app.defaultDate,
+  wisdomIndicators: state => state.app.wisdomIndicators,
+  topConditionsObj: state => state.app.topConditionsObj,
+
+  posProvinceId:state => state.app.posProvinceId,
+  posCityId:state => state.app.posCityId,
+  posDistrictId:state => state.app.posDistrictId,
+
+  itemizedInfoList: state => state.app.itemizedInfoList,
+  phyDeptStatsInfoList: state => state.app.phyDeptStatsInfoList,
+}
+export default getters
